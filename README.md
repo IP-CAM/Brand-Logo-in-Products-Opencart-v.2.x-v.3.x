@@ -1,5 +1,9 @@
 # brand-logo-in-products
+
+<img src="https://image.opencart.com/cache/5eb957d7ae075-resize-710x380.jpg" alt="Brand Logo in Products Page" title="Brand Logo in Products Page" class="img-responsive">
+
 Will show the manufacturer’s logo on the product page, on top of the image. For a default theme. Adaptation on request.
+
 
 How to install via Extension installer for OpenСart 3.x
 
