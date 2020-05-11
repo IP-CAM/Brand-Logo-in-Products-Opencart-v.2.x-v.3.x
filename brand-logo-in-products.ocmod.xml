@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+<name>Brand Logo in Products Page for OpenCart 3x</name>
+<code>brand-logo-in-products</code>
+<version>1.0</version>
+<author>https://github.com/open-cat</author>
+<link>https://github.com/open-cat</link>
+  <file path="catalog/view/theme/*/template/product/product.twig">
+    <operation>
+      <search><![CDATA[{% if thumb %}]]></search>
+      <add position="after"><![CDATA[{% if manufacturers_img %} <img src="{{ manufacturers_img }}" width="50px" title="{{ manufacturer }}" style="margin: 10px 10px 0 0;float:right;width:50px;" /> {% endif %}]]></add>
+    </operation>
+  </file>
+  <file path="catalog/controller/product/product.php">
+    <operation>
+      <search><![CDATA[$this->load->model('tool/image');]]></search>
+      <add position="after"><![CDATA[
+    $manufacturer_image = $this->model_catalog_manufacturer->getManufacturer($product_info['manufacturer_id']);
+    if($manufacturer_image){
+    $data['manufacturers_img'] = $this->model_tool_image->resize($manufacturer_image['image'], 100, 100);
+    } else {
+    $data['manufacturers_img'] = false;
+    }
+      ]]></add>
+    </operation>
+  </file>
+</modification>
